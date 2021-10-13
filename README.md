@@ -6,4 +6,4 @@ There is only a pile of n items, and two people take turns from this pile of ite
 
 In this game, user will play with computer. Total item is 20, every turn taken from 1 to 3 item, if last turn take all the item, and will lose.
 
-User start taken first.
+User start to take first.
