@@ -24,7 +24,7 @@ public class Game {
 				"Do you wish to change the \"Total Item\"(n) and \"Maximum Item Taken Each Round\"(m)? (Y = Yes/ N = No)");
 		ask = input.nextLine();
 		if (ask.equals("Y") || ask.equals("y")) {
-			System.out.println("\nEnter n(less than 1 is not available): ");
+			System.out.println("\nEnter n: ");
 			totalItem = input.nextInt();
 			System.out.println("\nEnter m: ");
 			maxItemPerRound = input.nextInt();
@@ -36,14 +36,19 @@ public class Game {
 				System.out.println("m less than 1, set to DEFAULT(m = 3)!");
 				maxItemPerRound = 3;
 			}
+			if (maxItemPerRound > totalItem) {
+				System.out.println("Warning! m > n");
+				System.out.println("Your m and n is using illegal value! The Bash Game will Stop!");
+				System.exit(0);
+			}
 		} else if (ask.equals("N") || ask.equals("n")) {
-			System.out.println("DEFAULT");
+			System.out.println("Using DEFAULT");
 		} else {
 			System.out.println("Your input either \"Y\" or \"N\", set to DEFAULT");
 		}
 
 		System.out.println("\nGame Start!!\n");
-		System.out.println("n = "+totalItem+", m = "+maxItemPerRound+", minimum per round = 1\n");
+		System.out.println("n = " + totalItem + ", m = " + maxItemPerRound + ", minimum per round = 1\n");
 		boolean end = false;
 		boolean playerfirst;
 		int a = maxItemPerRound + 1;
@@ -122,7 +127,7 @@ public class Game {
 		while (number > max || number > left) {
 			System.out.println("");
 			if (number > max) {
-				System.out.println("The input:"+number+" is more than number m: " + max);
+				System.out.println("The input:" + number + " is more than number m: " + max);
 			}
 			if (number > left) {
 				System.out.println("The number n:" + left + " is less than input: " + number);
