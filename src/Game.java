@@ -18,15 +18,15 @@ public class Game {
 		int totalItem = 20;
 		int maxItemPerRound = 3;
 		String ask = "";
-		System.out.println("\nPVE Mode\n");
+		System.out.println("PVE Mode\n");
 		System.out.println("By DEFAULT: n = 20, m = 3, minimum per round = 1");
 		System.out.println(
 				"Do you wish to change the \"Total Item\"(n) and \"Maximum Item Taken Each Round\"(m)? (Y = Yes/ N = No)");
 		ask = input.nextLine();
 		if (ask.equals("Y") || ask.equals("y")) {
-			System.out.println("Enter n(less than 1 is not available): ");
+			System.out.println("\nEnter n(less than 1 is not available): ");
 			totalItem = input.nextInt();
-			System.out.println("Enter m: ");
+			System.out.println("\nEnter m: ");
 			maxItemPerRound = input.nextInt();
 			if (totalItem < 1) {
 				System.out.println("n less than 1, set to DEFAULT(n = 20)!");
@@ -42,7 +42,8 @@ public class Game {
 			System.out.println("Your input either \"Y\" or \"N\", set to DEFAULT");
 		}
 
-		System.out.println("Game Start!!\n");
+		System.out.println("\nGame Start!!\n");
+		System.out.println("n = "+totalItem+", m = "+maxItemPerRound+", minimum per round = 1\n");
 		boolean end = false;
 		boolean playerfirst;
 		int a = maxItemPerRound + 1;
@@ -121,12 +122,12 @@ public class Game {
 		while (number > max || number > left) {
 			System.out.println("");
 			if (number > max) {
-				System.out.println("The number is more than " + max);
+				System.out.println("The input:"+number+" is more than number m: " + max);
 			}
 			if (number > left) {
-				System.out.println("The number item(" + left + ") is less than " + number);
+				System.out.println("The number n:" + left + " is less than input: " + number);
 			}
-			System.out.println("Please Enter Again.");
+			System.out.println("\nPlease Enter Again.");
 			System.out.print("Number of Taken(Not More Than " + max + "): ");
 			number = input.nextInt();
 		}
